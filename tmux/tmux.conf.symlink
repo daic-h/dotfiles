@@ -25,7 +25,7 @@ setw -g pane-base-index 1
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # reattach-to-user-namespaceを適用(macでpbcopyを動作せさせるため)
-set -g default-command "reattach-to-user-namespace -l zsh"
+if-shell "test expr '$OSTYPE' : 'darwin.*' > /dev/null" "set-option -g default-command 'reattach-to-user-namespace -l zsh'"
 
 # マウス操作を有効にする
 setw -g mode-mouse on
