@@ -1,0 +1,3 @@
+if [[ -s "$HOME/.dotfiles/zsh/bootstrap.zsh" ]]; then
+  source $HOME/.dotfiles/zsh/bootstrap.zsh
+fi

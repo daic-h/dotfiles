@@ -1,0 +1,10 @@
+[submodule "zsh/modules/zsh-completions"]
+	path = zsh/modules/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/modules/zsh-syntax-highlighting"]
+	path = zsh/modules/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "emacs/emacs.d.symlink"]
+	path = emacs/emacs.d.symlink
+	url = https://github.com/daic-h/emacs.d.git
+    ignore = dirty

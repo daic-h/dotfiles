@@ -1,0 +1,33 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+alias chrome 'Google Chrome'
+alias firefox 'Firefox'
+alias idea 'IntelliJ IDEA'
+alias emacs 'Emacs'
+alias tbird 'Thunderbird'
+alias adium 'Adium'
+
+bind 1:alt focus ${emacs}
+bind 2:alt focus ${firefox}
+bind 3:alt focus ${chrome}
+bind 4:alt focus ${tbird}
+
+# Push Bindings
+bind right:ctrl;cmd  push right bar-resize:screenSizeX/2
+bind left:ctrl;cmd   push left  bar-resize:screenSizeX/2
+bind up:ctrl;cmd     move screenSizeX/4;0 screenSizeX/2;screenSizeY
+bind down:ctrl;cmd   push down  bar-resize:screenSizeY
+
+# Nudge Bindings
+bind right:alt;cmd nudge +10% +0
+bind left:alt;cmd  nudge -10% +0
+bind up:alt;cmd    nudge +0  -10%
+bind down:alt;cmd  nudge +0  +10%
+
+# Throw Bindings
+bind right:ctrl;alt;cmd throw right
+bind left:ctrl;alt;cmd  throw left
+bind up:ctrl;alt;cmd    throw up
+bind down:ctrl;alt;cmd  throw down

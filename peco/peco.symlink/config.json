@@ -1,0 +1,12 @@
+{
+    "Keymap": {
+        "C-p": "peco.SelectPrevious",
+        "C-n": "peco.SelectNext",
+        "C-g": "peco.Cancel"
+    },
+    "Style": {
+        "Basic": ["on_default", "default"],
+        "Selected": ["underline", "on_white", "black"],
+        "Query": ["red"]
+    }
+}
