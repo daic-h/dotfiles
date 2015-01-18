@@ -1,8 +1,8 @@
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-alias et='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias e:start='open /Applications/Emacs.app'
-alias e:byte_compile='emacs -Q -batch -f batch-byte-compile'
+
+alias emacs.tmpdir='${TMPDIR}emacs$(id -u)'
+alias emacs.rmsock='rm ${TMPDIR}emacs$(id -u)/server'
 
 function e() {
     if [[ "$1" != "" ]]; then
@@ -19,3 +19,4 @@ function e() {
         open /Applications/Emacs.app
     fi
 }
+

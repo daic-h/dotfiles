@@ -105,6 +105,13 @@ if [[ -z "$TMUX" ]]; then
         export GOPATH=~/.go
         export PATH=$GOPATH/bin:$PATH
     fi
+
+    #
+    # direnv
+    #
+    if which direnv > /dev/null; then
+        eval "$(direnv hook zsh)"
+    fi
 fi
 
 #

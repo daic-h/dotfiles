@@ -638,7 +638,7 @@ key.setViewKey(['C-y'], function () {
 // ========================= Tanyting  ========================== //
 key.setGlobalKey([['C-x', 'b'], ['C-x', 'C-b']], function (ev, arg) {
     ext.exec("tanything", arg);
-    // prompt.editModeEnabled = true;
+    prompt.editModeEnabled = true;
 }, 'タブを一覧表示 (編集モード)', true);
 
 
