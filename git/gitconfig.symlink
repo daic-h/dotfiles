@@ -1,63 +1,40 @@
 [user]
 	name = Daichi HIRATA
 	email = bunny.hop.md@gmail.com
-
 [include]
-    path = ~/.gitconfig.secret
-
-[include]
-    path = ~/.gitconfig.local
-
+	path = ~/.gitconfig.secret
+	path = ~/.gitconfig.local
 [core]
 	excludesfile = ~/.gitignore
-
 [color]
 	ui = auto
-
 [push]
 	default = simple
-
 [pull]
-    rebase = true
-
+	rebase = true
 [merge]
-    ff = false
-
+	ff = false
 [alias]
-    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-    info = remote show origin
-    co = checkout
-    cancel   = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
-    tag-date = for-each-ref --sort=-taggerdate --format='%(authordate) %(refname) %(subject)' refs/tags
-
-    d   = diff
-    dc  = diff --cached
-    p4diff = difftool -t p4
-
-    st  = status -sb
-    stt = status -uno -sb
-
-    tree = log --graph --all --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(red)%an%C(reset)%C(yellow)%d%C(reset)' --abbrev-commit --date=relative
+	root = rev-parse --show-toplevel
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+	info = remote show origin
+	co = checkout
+	cancel   = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+	tag-date = for-each-ref --sort=-taggerdate --format='%(authordate) %(refname) %(subject)' refs/tags
+	d   = diff
+	dc  = diff --cached
+	p4diff = difftool -t p4
+	st  = status -sb
+	stt = status -uno -sb
+	tree = log --graph --all --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(red)%an%C(reset)%C(yellow)%d%C(reset)' --abbrev-commit --date=relative
 	hist = log --pretty=format:\"%C(yellow)%h %C(White)%ad | %C(White)%s%d %C(Red)[%an]\" --graph --date=short
-
-    ignore   = update-index --assume-unchanged
-    unignore = update-index --no-assume-unchanged
-    ignored  = !git ls-files -v | grep "^[a-z]"
-
-[difftool "ediff"]
-    cmd = emacsclient --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
-
+	ignore   = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored  = !git ls-files -v | grep "^[a-z]"
 [difftool "p4"]
-    cmd = /Applications/p4merge.app/Contents/MacOS/p4merge $LOCAL $REMOTE
-    prompt = false
-
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge $LOCAL $REMOTE
+	prompt = false
 [difftool]
 	prompt = false
-
-[difftool "sourcetree"]
-	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
-	path = 
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[ghq]
+	root = ~/src

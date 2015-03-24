@@ -11,7 +11,7 @@ fi
 fpath=($ZSH/modules/zsh-completions/src $fpath)
 
 #
-# Zsh設定用ファイル
+# Zsh設定ファイル
 #
 for lib_file in $ZSH/lib/**/*.zsh; do
     source $lib_file

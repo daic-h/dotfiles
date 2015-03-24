@@ -44,8 +44,8 @@ set t_Co=256
 filetype indent plugin on
 
 syntax on
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme" solarized
 
 "-------------------------------------------------------------------------------
 " Base Setting
@@ -206,7 +206,7 @@ set laststatus=2                   "ステータスラインを表示するウ�
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P "ステータス行の表示内容を設定する
 set showcmd                        "入力中のステータスに表示する
 set undofile
-set undodir=~/.vim/undo
+set undodir=~/.vim_undo
 
 "全角表示
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white

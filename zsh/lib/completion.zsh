@@ -1,4 +1,5 @@
-autoload colors; colors;
+autoload -U colors
+colors
 
 # 補完候補を一覧表示
 setopt auto_list

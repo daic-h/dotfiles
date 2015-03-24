@@ -2,14 +2,13 @@ require 'rake'
 require 'fileutils'
 
 class DotFile
-
   class << self
     def current_dir
       File.expand_path('.', File.dirname(__FILE__))
     end
 
     def linkables
-      Dir.glob(current_dir + '/**/*{.symlink}')
+      Dir.glob(current_dir + '/**/*.symlink')
     end
 
     def symlink_path
