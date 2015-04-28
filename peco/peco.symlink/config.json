@@ -3,10 +3,5 @@
         "C-p": "peco.SelectUp",
         "C-n": "peco.SelectDown",
         "C-g": "peco.Cancel"
-    },
-    "Style": {
-        "Basic": ["on_default", "default"],
-        "Selected": ["underline", "on_white", "black"],
-        "Query": ["red"]
     }
 }

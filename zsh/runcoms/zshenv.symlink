@@ -30,8 +30,8 @@ export PAGER='less'
 # Set the default Less options.
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
-# export LESS='-F -g -i -M -R -w -X -z-4'
-export LESS='-R -n'
+export LESS='-F -g -i -M -R -w -X -z-4'
+# export LESS='-R -n'
 
 # Set the Less input preprocessor.
 # if (( $+commands[lesspipe.sh] )); then
@@ -63,7 +63,10 @@ typeset -gU cdpath fpath mailpath path
 
 # if [[ -z "$TMUX" ]]; then
 # Set the list of directories that Zsh searches for programs.
-path=(~/bin(N-/) /usr/local/{bin,sbin} /usr/X11/bin $path)
+path=(~/bin(N-/) /usr/local/{bin,sbin} /usr/X11/bin /usr/bin /bin /usr/sbin /sbin $path)
+# path=(~/bin(N-/) /usr/local/{bin,sbin} /usr/X11/bin $path)
+
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # go
 export GOPATH=~/.go
@@ -72,7 +75,7 @@ export PATH=$GOPATH/bin:$PATH
 # rbenv
 if [ -d ${HOME}/.rbenv  ] ; then
     export PATH=$HOME/.rbenv/bin:$PATH
-    eval "$(rbenv init -)"
+    eval "$(rbenv init - zsh)"
 fi
 
 # plenv

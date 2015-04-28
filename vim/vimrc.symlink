@@ -12,7 +12,7 @@ if has('vim_starting')
 endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.neobundle/'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -228,7 +228,7 @@ hi PmenuSel ctermbg=black ctermfg=white
 "-------------------------------------------------------------------------------
 " Plugin Setting
 "-------------------------------------------------------------------------------
-let g:yankring_history_dir='$HOME/.vim/bundle/YankRing.vim/'
+let g:yankring_history_dir='$HOME/.neobundle/YankRing.vim/'
 
 "unite.vim
 let g:unite_enable_start_insert = 1

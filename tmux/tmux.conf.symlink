@@ -1,6 +1,8 @@
 # -------------------------------------------
 # Base Setting
 # -------------------------------------------
+if-shell "test -e /usr/local/bin/zsh > /dev/null" "set -g default-shell /usr/local/bin/zsh"
+
 setw -g utf8 on
 
 # prefixキーをC-tに変更する

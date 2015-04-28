@@ -1,1 +1,1 @@
-alias svn=colorsvn
+# alias svn=colorsvn
