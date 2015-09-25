@@ -18,6 +18,10 @@ for lib_file in $ZSH/lib/**/*.zsh; do
 done
 unset lib_file
 
+# TODO
+bindkey "^P" history-beginning-search-backward
+bindkey "^N" history-beginning-search-forward
+
 #
 # Modules
 #

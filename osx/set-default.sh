@@ -1,6 +1,9 @@
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
 
 #
 # NSGlobalDomain
@@ -27,6 +30,10 @@ defaults write NSGlobalDomain WebAutomaticTextReplacementEnabled -bool false
 # Save to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
+# Enable full keyboard access for all controls
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+
 #
 # com.apple.dock
 #
@@ -42,6 +49,9 @@ defaults write com.apple.dock expose-animation-duration -float 0.15
 # Dockを左側に寄せる
 defaults write com.apple.dock orientation -string left
 
+defaults write com.apple.dock autohide -bool true
+
+
 #
 # com.apple.Finder
 #
@@ -52,11 +62,13 @@ defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 defaults write com.apple.Finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.Finder ShowRemovableMediaOnDesktop -bool true
 
+
 #
 # com.apple.desktopservices
 #
 # ネットワーク上には.DS_Storeを作らない
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
 
 #
 # com.apple.NetworkBrowser
@@ -64,8 +76,18 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Use AirDrop over every interface. srsly this should be a default.
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
+
 #
 # com.apple.LaunchServices
 #
 # Disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+
+for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+    "Dock" "Finder" "Mail" "Messages" \
+    "Opera" "SizeUp" "Spectacle" "SystemUIServer" \
+    "Transmission" "Twitter" "iCal"; do
+killall "${app}" > /dev/null 2>&1
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."

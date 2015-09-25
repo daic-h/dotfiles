@@ -1,1 +1,0 @@
-# alias svn=colorsvn

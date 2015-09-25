@@ -1,9 +1,5 @@
 alias reload!='source ${HOME}/.zshrc'
 
-# Super user
-alias _='sudo'
-alias please='sudo'
-
 # Show history
 # alias history='fc -l 1'
 
@@ -32,3 +28,17 @@ alias md='mkdir -p'
 alias rd='rmdir'
 
 alias updatedb='sudo /usr/libexec/locate.updatedb'
+
+# git
+alias gst="git status -sb && git stash list"
+alias git-root='cd `git root`'
+alias git-rm-merged-branch="git branch --merged | grep -v '*' | xargs git branch -d"
+
+# emacs
+#alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+#alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+alias emacs.tmpdir='${TMPDIR}emacs$(id -u)'
+alias emacs.rmsock='rm ${TMPDIR}emacs$(id -u)/server'
+
+# ruby
+alias webrick="ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => \"./\", :Port => 8000).start'"

@@ -50,17 +50,21 @@ local VCS_PROMPT="%1(v|%1v $RED%2v$RESET|)"
 #     psvar[3]=$p_aa_array[`expr $p_aa_counter % ${#p_aa_array[*]} + 1`]
 #     p_aa_counter=`expr $p_aa_counter + 1`
 # }
-#add-zsh-hook precmd _precmd_aa
+# add-zsh-hook precmd _precmd_aa
 # local AA_PROMPT="$RANDOM_COLOR%3v♪%f"
 
 # PROMPT="$GREEN%n$RESET at $YELLOW%m$RESET in $BLUE%~$RESET $VCS_PROMPT
 # $AA_PROMPT  "
 
 PROMPT="$GREEN%n$RESET at $YELLOW%m$RESET in $BLUE%~$RESET $VCS_PROMPT
-$YELLOW✔$RESET "
+$BLUE(๑'ω'๑)$RESET "
+# (๑ˇεˇ๑)•*¨*•.¸¸♪ "
+# $ "
+# (灬╹ω╹灬)"
+# $YELLOW⚡$RESET "
+# (´・ω ・)つ$GREEN旦 $RESET"
 
 RPROMPT="%D{%m/%d %T}"
-# (´・ω ・)つ$GREEN旦 $RESET"
 
 PROMPT2=$BLUE"%_> "$RESET
 SPROMPT=$RED"correct: %R -> %r [nyae]? "$RESET
