@@ -1,3 +1,5 @@
-if [[ -s "$HOME/.dotfiles/zsh/bootstrap.zsh" ]]; then
-  source $HOME/.dotfiles/zsh/bootstrap.zsh
+# -*- mode: shell-script -*-
+
+if [[ -s "$HOME/.dotfiles/zsh/init.zsh" ]]; then
+  source $HOME/.dotfiles/zsh/init.zsh
 fi
