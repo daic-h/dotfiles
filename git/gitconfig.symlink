@@ -2,7 +2,6 @@
 	name = Daichi HIRATA
 	email = bunny.hop.md@gmail.com
 [include]
-	path = ~/.gitconfig.secret
 	path = ~/.gitconfig.local
 [core]
 	excludesfile = ~/.gitignore
