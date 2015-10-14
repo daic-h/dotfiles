@@ -42,8 +42,9 @@ export WWW_HOME='https://www.google.co.jp/'
 typeset -gU cdpath fpath mailpath path
 
 path=(
-    $HOME/bin
-    /usr/local/{bin,sbin}
+    $HOME/bin(N-/)
+    $HOME/.dotfiles/bin(N-/)
+    /usr/local/{bin,sbin}(N-/)
     $path
 )
 
