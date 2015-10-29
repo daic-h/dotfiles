@@ -27,7 +27,8 @@ setw -g pane-base-index 1
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # マウス操作を有効にする
-setw -g mode-mouse on
+set -g mouse on
+bind-key -n WheelUpPane if-shell -Ft= "#{?pane_in_mode,1,#{alternate_on}}" "send-keys -M" "copy-mode"
 
 # 履歴を10000行保存する
 set -g history-limit 10000
@@ -62,11 +63,11 @@ bind n new-window
 bind s split-window -v
 bind v split-window -h
 
-if-shell "[[ `tmux -V` == *2.0* ]]" \
+if-shell "[[ `tmux -V` == *2.* ]]" \
     'unbind n; bind n new-window -c "#{pane_current_path}"'
-if-shell "[[ `tmux -V` == *2.0* ]]" \
+if-shell "[[ `tmux -V` == *2.* ]]" \
     'unbind s; bind s split-window -v -c "#{pane_current_path}"'
-if-shell "[[ `tmux -V` == *2.0* ]]" \
+if-shell "[[ `tmux -V` == *2.* ]]" \
     'unbind v; bind v split-window -h -c "#{pane_current_path}"'
 
 bind -r C-[ copy-mode
