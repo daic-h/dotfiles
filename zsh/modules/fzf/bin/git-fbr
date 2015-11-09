@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# fbr - checkout git branch (including remote branches)
+
+if ! git rev-parse; then exit 1; fi
+
+branches=$(git branch --all | grep -v HEAD)
+branch=$(echo "$branches" | fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m)
+
+if [ -n "$target" ]; then
+    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+fi

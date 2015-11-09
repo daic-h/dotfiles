@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# fco - checkout git branch/tag
+
+if ! git rev-parse; then exit 1; fi
+
+tags=$(git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}')
+
+branches=$(git branch --all |
+                  grep -v HEAD | sed "s/.* //" | sed "s#remotes/[^/]*/##" | sort -u | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}')
+
+target=$((echo "$branches"; echo "$tags") | fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2)
+
+if [ -n "$target" ]; then
+    git checkout $(echo "$target" | awk '{print $2}')
+fi
