@@ -11,8 +11,8 @@ set -g prefix C-t
 # C-bのキーバインドを解除する
 unbind C-b
 
-# C-aでリモートへprefixを送信
-bind-key C-a send-prefix
+# C-t*2でリモートへprefixを送信
+bind C-t send-prefix
 
 # キーストロークのディレイを減らす
 set -sg escape-time 0
@@ -43,8 +43,6 @@ set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 
 # emacs likeの操作
 setw -g mode-keys emacs
-
-bind C-t last-window
 
 bind H resize-pane -L 5
 bind J resize-pane -D 5

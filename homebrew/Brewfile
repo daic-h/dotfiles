@@ -1,51 +1,57 @@
-tap 'homebrew/bundle'
+cask_args appdir: '/Applications'
+
 tap 'caskroom/cask'
+tap 'homebrew/bundle'
+tap 'motemen/ghq'
+tap 'tkengo/highway'
 
 brew 'readline'
-brew 'openssl'
 brew 'texinfo' # brew link --force texinfo (for Emacs flycheck)
 
-brew 'zsh', args: ['without-etcdir']
 brew 'coreutils'
 brew 'curl'
-brew 'wget'
 brew 'git'
+brew 'wget'
+brew 'zsh', args: ['without-etcdir']
 
-brew 'rbenv'
-brew 'ruby-build'
-brew 'rbenv-gemset'
-brew 'rbenv-gem-rehash'
 brew 'go'
 brew 'nodebrew'
+brew 'rbenv'
+brew 'rbenv-gemset'
+brew 'ruby-build'
 
 brew 'mysql'
 # brew 'redis'
 
-brew 'fzf', args: ['HEAD']
 brew 'ag'
-brew 'tig'
-brew 'jq'
-brew 'htop'
-brew 'tmux'
 brew 'emacs', args: ['with-cocoa', 'with-gnutls'] # brew linkapps emacs
+brew 'fzf', args: ['HEAD']
+brew 'ghq'
+brew 'highway'
+brew 'htop'
+brew 'jq'
+brew 'tig'
+brew 'tmux'
+
+brew 'https://raw.githubusercontent.com/sorah/envchain/master/brew/envchain.rb'
 
 # cask
-cask 'xquartz'
-cask 'keepassx'
+cask 'appcleaner'
+cask 'atom'
+cask 'caffeine'
 cask 'copy'
 cask 'google-chrome'
 cask 'google-japanese-ime'
+cask 'hipchat'
+cask 'ifunbox'
+cask 'iterm2'
 cask 'karabiner'
+cask 'keepassx'
+cask 'kindle'
+cask 'skype'
 cask 'slate'
-cask 'atom'
-cask 'caffeine'
 cask 'transmission'
 cask 'vagrant'
 cask 'virtualbox'
-cask 'hipchat'
-cask 'skype'
-cask 'ifunbox'
 cask 'wireshark'
-cask 'iterm2'
-cask 'appcleaner'
-cask 'kindle'
+cask 'xquartz'
