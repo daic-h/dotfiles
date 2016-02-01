@@ -9,37 +9,37 @@ sudo nvram SystemAudioVolume=" "
 #
 
 # Set a really fast key repeat.
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write -g KeyRepeat -int 0
 
 # Disable press-and-hold for keys in favor of key repeat.
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 # スペルチェックの停止
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g WebAutomaticSpellingCorrectionEnabled -bool false
 
 # ダブルクオートの自動変換無効化
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write -g NSAutomaticDashSubstitutionEnabled -bool false
 
 # シングルクオートの自動変換無効化
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # テキストの自動置換無効化
-defaults write NSGlobalDomain WebAutomaticTextReplacementEnabled -bool false
+defaults write -g WebAutomaticTextReplacementEnabled -bool false
 
 # Save to disk (not to iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Enable full keyboard access for all controls
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+defaults write -g AppleKeyboardUIMode -int 3
 
 # Expand Save Panel by Default
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
+defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # Scrollbar Visibility
 #   Possible values: WhenScrolling, Automatic and Always.
-defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
+defaults write -g AppleShowScrollBars -string "Automatic"
 
 #
 # com.apple.dock
@@ -104,7 +104,15 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+defaults write -g WebKitDeveloperExtras -bool true
+
+#
+# com.apple.ImageCapture
+#
+
+# iPhoneを接続した時に写真アプリの自動起動を防ぐ
+defaults write com.apple.ImageCapture disableHotPlug -bool NO
+
 
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
