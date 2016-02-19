@@ -21,8 +21,11 @@ zstyle ':prezto:load' pmodule \
        'fzf' \
        'ruby' \
        'syntax-highlight' \
+       'docker' \
        'completion' \
+       'direnv' \
        'prompt'
 
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'agnoster'
+# zstyle ':prezto:module:prompt' theme 'pure'

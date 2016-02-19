@@ -1,3 +1,5 @@
+cask_args appdir: '/Applications'
+
 tap 'homebrew/bundle'
 tap 'motemen/ghq'
 tap 'tkengo/highway'
@@ -10,7 +12,9 @@ brew 'curl'
 brew 'git'
 brew 'wget'
 brew 'watch'
+brew 'bash'
 brew 'zsh', args: ['without-etcdir']
+brew 'direnv'
 
 brew 'go'
 brew 'nodebrew'
@@ -19,9 +23,12 @@ brew 'rbenv-gemset'
 brew 'ruby-build'
 brew 'multirust'
 
-brew 'homebrew/versions/mysql56'
+# brew 'homebrew/versions/mysql56'
 # brew 'mysql'
 # brew 'redis'
+
+brew 'docker-machine'
+brew 'docker-compose'
 
 brew 'ag'
 brew 'emacs', args: ['with-cocoa', 'with-gnutls'] # brew linkapps emacs
@@ -32,7 +39,6 @@ brew 'htop'
 brew 'jq'
 brew 'tig'
 brew 'tmux'
-
 brew 'https://raw.githubusercontent.com/sorah/envchain/master/brew/envchain.rb'
 
 # cask

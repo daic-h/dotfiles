@@ -2,5 +2,5 @@
 # Variables
 #
 
-export GOPATH=~/.go
+export GOPATH=$HOME
 export PATH=$GOPATH/bin:$PATH

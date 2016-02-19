@@ -7,11 +7,12 @@ alias firefox 'Firefox'
 alias idea 'IntelliJ IDEA'
 alias emacs 'Emacs'
 alias tbird 'Thunderbird'
-alias adium 'Adium'
+alias slack 'Slack'
+alias iterm 'iTerm'
 
-bind 1:alt focus ${emacs}
-bind 2:alt focus ${chrome}
-# bind 4:alt focus ${tbird}
+bind 1:alt focus ${chrome}
+bind 2:alt focus ${emacs}
+bind 3:alt focus ${slack}
 
 # Push Bindings
 bind right:ctrl;cmd  push right bar-resize:screenSizeX/2

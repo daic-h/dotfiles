@@ -14,19 +14,19 @@
 [merge]
 	ff = false
 [alias]
-	root = rev-parse --show-toplevel
-	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-	info = remote show origin
-	co = checkout
+	root     = rev-parse --show-toplevel
+	alias    = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+	info     = remote show origin
+	co       = checkout
 	cancel   = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
 	tag-date = for-each-ref --sort=-taggerdate --format='%(authordate) %(refname) %(subject)' refs/tags
-	d   = diff
-	dc  = diff --cached
-	p4diff = difftool -t p4
-	st  = status -sb
-	stt = status -uno -sb
-	tree = log --graph --all --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(red)%an%C(reset)%C(yellow)%d%C(reset)' --abbrev-commit --date=relative
-	hist = log --pretty=format:\"%C(yellow)%h %C(White)%ad | %C(White)%s%d %C(Red)[%an]\" --graph --date=short
+	d        = diff
+	dc       = diff --cached
+	p4diff   = difftool -t p4
+	st       = status -sb
+	stt      = status -uno -sb
+	tree     = log --graph --all --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(red)%an%C(reset)%C(yellow)%d%C(reset)' --abbrev-commit --date=relative
+	hist     = log --pretty=format:\"%C(yellow)%h %C(White)%ad | %C(White)%s%d %C(Red)[%an]\" --graph --date=short
 	ignore   = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
 	ignored  = !git ls-files -v | grep "^[a-z]"
@@ -41,5 +41,6 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
-[github]
-	user = daic-h
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
