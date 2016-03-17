@@ -35,6 +35,7 @@ setopt NUMERIC_GLOB_SORT    # ファイル名の展開で辞書順ではなく�
 setopt PRINT_EIGHT_BIT      # 日本語ファイル名等8ビットを通す
 # unsetopt FLOW_CONTROL       # Disable start/stop characters in shell editor.
 # unsetopt MENU_COMPLETE      # Do not autoselect the first completion entry.
+setopt complete_aliases
 
 #
 # Styles

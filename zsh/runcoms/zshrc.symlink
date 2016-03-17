@@ -3,7 +3,3 @@
 if [[ -s "$HOME/.dotfiles/zsh/init.zsh" ]]; then
   source $HOME/.dotfiles/zsh/init.zsh
 fi
-
-# if type zprof > /dev/null 2>&1; then
-#  zprof | less
-# fi

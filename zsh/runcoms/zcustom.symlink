@@ -7,6 +7,7 @@
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 zstyle ':prezto:load' pmodule \
+       'completion' \
        'editor' \
        'history' \
        'directory' \
@@ -22,7 +23,6 @@ zstyle ':prezto:load' pmodule \
        'ruby' \
        'syntax-highlight' \
        'docker' \
-       'completion' \
        'direnv' \
        'prompt'
 
