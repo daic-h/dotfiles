@@ -46,5 +46,3 @@
 	show = diff-so-fancy | less --tabs=1,5 -RFX
 [credential]
 	helper = osxkeychain
-[init]
-	templatedir = ~/.git_template
