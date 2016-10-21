@@ -1,5 +1,3 @@
-cask_args appdir: '/Applications'
-
 tap 'homebrew/bundle'
 tap 'motemen/ghq'
 tap 'tkengo/highway'
@@ -27,11 +25,8 @@ brew 'multirust'
 # brew 'mysql'
 # brew 'redis'
 
-brew 'docker-machine'
-brew 'docker-compose'
-
 brew 'ag'
-brew 'emacs', args: ['with-cocoa', 'with-gnutls'] # brew linkapps emacs
+# brew 'emacs', args: ['devel', 'with-cocoa', 'with-gnutls'] # brew linkapps emacs
 brew 'fzf', args: ['HEAD']
 brew 'ghq'
 brew 'highway'
@@ -45,7 +40,6 @@ brew 'https://raw.githubusercontent.com/sorah/envchain/master/brew/envchain.rb'
 cask 'appcleaner'
 cask 'atom'
 cask 'caffeine'
-cask 'copy'
 cask 'google-chrome'
 cask 'google-japanese-ime'
 cask 'ifunbox'
@@ -60,3 +54,5 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'wireshark'
 cask 'xquartz'
+cask 'google-cloud-sdk'
+cask 'emacs'

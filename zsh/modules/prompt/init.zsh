@@ -60,10 +60,13 @@ add-zsh-hook precmd _precmd_vcs_info
 local VCS_PROMPT="%1(v|%1v ${RED}%2v${RESET}|)"
 
 PROMPT="${GREEN}%n${RESET} at ${YELLOW}%m${RESET} in ${BLUE}%~${RESET} ${VCS_PROMPT}${BLACK}[%D{%m/%d %T}]${RESET}
-$YELLOW✔$RESET "
-
-# RPROMPT="%D{%m/%d %T}"
+(*•̀ᴗ•́*)و ̑ "
+# $YELLOW✔$RESET "
 # (´・ω ・)つ$GREEN旦 $RESET"
 
+# PROMPT="${GREEN}%n${RESET} at ${YELLOW}%m${RESET} in ${BLUE}%~${RESET} ${VCS_PROMPT}${BLACK}[%D{%m/%d %T}]${RESET}"
+# PROMPT=$PROMPT$'\n\U1F439  '
+
+# RPROMPT="%D{%m/%d %T}"
 PROMPT2=$BLUE"%_> "$RESET
 SPROMPT=$RED"correct: %R -> %r [nyae]? "$RESET

@@ -2,11 +2,13 @@
 # Aliases
 #
 
-alias dockm="docker-machine"
-compdef dockm='docker-machine'
+# alias dockm="docker-machine"
+# compdef dockm='docker-machine'
 
-alias dockc="docker-compose"
-compdef dockc='docker-compose'
+alias fig="docker-compose"
+
+alias docker-rmi-none="docker images | awk '/<none/{print $3}' | xargs docker rmi"
+# compdef fig='docker-compose'
 
 #
 # functions

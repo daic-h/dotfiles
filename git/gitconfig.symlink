@@ -22,6 +22,7 @@
 	tag-date = for-each-ref --sort=-taggerdate --format='%(authordate) %(refname) %(subject)' refs/tags
 	d        = diff
 	dc       = diff --cached
+	push-f   = push --force-with-lease
 	p4diff   = difftool -t p4
 	st       = status -sb
 	stt      = status -uno -sb
@@ -42,7 +43,10 @@
 	smudge = git lfs smudge %f
 	required = true
 [pager]
-	diff = diff-so-fancy | less --tabs=1,5 -RFX
-	show = diff-so-fancy | less --tabs=1,5 -RFX
+#	log  = diff-so-fancy | less
+#	diff = diff-so-fancy | less
+#	show = diff-so-fancy | less
 [credential]
 	helper = osxkeychain
+[diff]
+	compactionHeuristic = true

@@ -28,54 +28,24 @@ plugins.options["tanything_opt.keymap"] = {
     "p"     : "localTogglePin"
 };
 
-plugins.options["twitter_client.keymap"] = {
-    "C-RET" : "prompt-decide",
-    "RET"   : "",
-    "C-z"   : "prompt-toggle-edit-mode",
-    "SPC"   : "prompt-next-page",
-    "b"     : "prompt-previous-page",
-    "j"     : "prompt-next-completion",
-    "k"     : "prompt-previous-completion",
-    "g"     : "prompt-beginning-of-candidates",
-    "G"     : "prompt-end-of-candidates",
-    "q"     : "prompt-cancel",
-    // twitter client specific actions
-    "t"     : "tweet",
-    "r"     : "reply",
-    "R"     : "retweet",
-    "d"     : "send-direct-message",
-    "D"     : "delete-tweet",
-    "f"     : "add-to-favorite",
-    "v"     : "display-entire-message",
-    "V"     : "view-in-twitter",
-    "c"     : "copy-tweet",
-    "*"     : "show-target-status",
-    "@"     : "show-mentions",
-    "/"     : "search-word",
-    "o"     : "open-url",
-    "+"     : "show-conversations",
-    "h"     : "refresh-or-back-to-timeline",
-    "s"     : "switch-to"
-};
-
 plugins.options["bmany.default_open_type"] = "tab";
 
-ext.add("list-closed-tabs", function () {
-    const fav = "chrome://mozapps/skin/places/defaultFavicon.png";
-    var ss   = Cc["@mozilla.org/browser/sessionstore;1"].getService(Ci.nsISessionStore);
-    var json = Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON);
-    var closedTabs = [[tab.image || fav, tab.title] for each (tab in json.decode(ss.getClosedTabData(window)))];
+// ext.add("list-closed-tabs", function () {
+//     const fav = "chrome://mozapps/skin/places/defaultFavicon.png";
+//     var ss   = Cc["@mozilla.org/browser/sessionstore;1"].getService(Ci.nsISessionStore);
+//     var json = Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON);
+//     var closedTabs = [[tab.image || fav, tab.title] for each (tab in json.decode(ss.getClosedTabData(window)))];
 
-    if (!closedTabs.length)
-        return void display.echoStatusBar("最近閉じたタブが見つかりませんでした", 2000);
+//     if (!closedTabs.length)
+//         return void display.echoStatusBar("最近閉じたタブが見つかりませんでした", 2000);
 
-    prompt.selector({
-        message    : "select tab to undo:",
-        collection : closedTabs,
-        flags      : [ICON | IGNORE, 0],
-        callback   : function (i) { if (i >= 0) window.undoCloseTab(i); }
-    });
-}, "閉じたタブを一覧から選択して復元");
+//     prompt.selector({
+//         message    : "select tab to undo:",
+//         collection : closedTabs,
+//         flags      : [ICON | IGNORE, 0],
+//         callback   : function (i) { if (i >= 0) window.undoCloseTab(i); }
+//     });
+// }, "閉じたタブを一覧から選択して復元");
 
 ext.add("list-tab-history", function () {
     const fav = "chrome://mozapps/skin/places/defaultFavicon.png";
@@ -672,20 +642,6 @@ key.setViewKey(['C-b', 'c'], function (ev, arg) {
 key.setViewKey(['C-b','a'], function (ev, arg) {
     ext.exec("hateb-bookmark-this-page");
 }, 'このページをはてなブックマークに追加', true);
-
-
-// ========================= Twitter ========================== //
-key.setViewKey("C-t", function (ev, arg) {
-    ext.exec("twitter-client-display-timeline", arg);
-}, "TL を表示", true);
-
-key.setGlobalKey(["C-c", "t"], function (ev, arg) {
-    ext.exec("twitter-client-tweet", arg);
-}, "つぶやく", true);
-
-key.setGlobalKey(["C-c", "T"], function (ev, arg) {
-    ext.exec("twitter-client-tweet-this-page", arg);
-}, "このページのタイトルと URL を使ってつぶやく", true);
 
 
 // ========================= bmany ========================== //

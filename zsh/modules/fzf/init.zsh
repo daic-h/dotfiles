@@ -2,7 +2,7 @@
 # Variables
 #
 
-path=(${0:h}/bin(N-/) $path)
+path=(${0:h}/bin $path)
 export FZF_DEFAULT_OPTS="--reverse --ansi"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -11,6 +11,7 @@ export FZF_DEFAULT_OPTS="--reverse --ansi"
 #
 
 # alias ghq-src='cd $(ghq list -p | fzf-tmux)'
+alias gh='gh-open $(ghq list -p | fzf)'
 
 #
 # Functions
@@ -57,3 +58,10 @@ fzf-cdr() {
 }
 zle -N fzf-cdr
 bindkey '^xb' fzf-cdr
+
+fzfe () {
+    file=$(hw $@ | fzf)
+    if [ -n "$file" ]; then
+        `echo $file | awk -F : '{print "e +" $2 " " $1}'`
+    fi
+}

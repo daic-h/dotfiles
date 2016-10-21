@@ -5,7 +5,7 @@ var PLUGIN_INFO =
     <name>HoK</name>
     <description>Hit a hint for KeySnail</description>
     <description lang="ja">キーボードでリンクを開く</description>
-    <version>1.4.2</version>
+    <version>1.4.6</version>
     <updateURL>https://github.com/mooz/keysnail/raw/master/plugins/hok.ks.js</updateURL>
     <iconURL>https://github.com/mooz/keysnail/raw/master/plugins/icon/hok.icon.png</iconURL>
     <author mail="stillpedant@gmail.com" homepage="http://d.hatena.ne.jp/mooz/">mooz</author>
@@ -448,7 +448,7 @@ const pOptions = plugins.setupOptions("hok", {
     },
 
     "follow_link_candidate_selector": {
-        preset: "a[href], input:not([type='hidden']), button"
+        preset: "a[href], input:not([type='hidden']), button, img[alt]"
     }
 }, PLUGIN_INFO);
 
@@ -482,7 +482,23 @@ function createMouseEvent(aDocument, aType, aOptions) {
         defaults[prop] = aOptions[prop];
     }
 
-    event.initMouseEvent.apply(event, [v for each(v in defaults)]);
+    event.initMouseEvent(
+        defaults.type,
+        defaults.bubbles,
+        defaults.cancelable,
+        defaults.view,
+        defaults.detail,
+        defaults.screenX,
+        defaults.screenY,
+        defaults.clientX,
+        defaults.clientY,
+        defaults.ctrlKey,
+        defaults.altKey,
+        defaults.shiftKey,
+        defaults.metaKey,
+        defaults.button,
+        defaults.relatedTarget
+    );
 
     return event;
 }
@@ -566,8 +582,10 @@ function followRel(doc, rel, pattern) {
         doc.querySelectorAll(pOptions["follow_link_candidate_selector"])
     );
 
-    for (let [, elem] in Iterator(relLinkCandidates.reverse())) {
-        if (relLinkPattern.test(elem.textContent) /*|| regex.test(elem.value) */) {
+    for (let elem of relLinkCandidates.reverse()) {
+        if (relLinkPattern.test(elem.textContent) ||
+            relLinkPattern.test(elem.alt) ||
+            relLinkPattern.test(elem.title)) {
             followLink(elem, CURRENT_TAB);
             return;
         }
@@ -734,7 +752,7 @@ var hok = function () {
         }
 
         var hints = [];
-        for (let [hint] in Iterator(reverseHints)) {
+        for (let hint of Object.keys(reverseHints)) {
             hints.push(hint);
         }
 
@@ -894,11 +912,10 @@ var hok = function () {
 
         var hintSpan = doc.createElement('span');
 
-        let (st = hintSpan.style) {
-            for (let [prop, value] in Iterator(hintBaseStyle))
-                st[formatPropertyName(prop)] = value;
-            st.backgroundColor = hintColorLink;
-        };
+        let st = hintSpan.style;
+        for (let [prop, value] of util.keyValues(hintBaseStyle))
+            st[formatPropertyName(prop)] = value;
+        st.backgroundColor = hintColorLink;
 
         // }} ======================================================================= //
 
@@ -1015,7 +1032,8 @@ var hok = function () {
         const hideUnmatchedHint = pOptions["hide_unmatched_hint"];
         let foundCount = 0;
 
-        for (let [hintStr, hintElem] in Iterator(hintElements)) {
+        for (let [hintStr, hintElem] of util.keyValues(hintElements)) {
+            hintStr = String(hintStr);
             if (hintStr.indexOf(inputKey) === 0) {
                 if (hintStr != inputKey)
                     hintElem.style.backgroundColor = hintColorCandidates;
@@ -1031,7 +1049,7 @@ var hok = function () {
     }
 
     function resetHintsColor() {
-        for (let [, span] in Iterator(hintElements)) {
+        for (let span of util.values(hintElements)) {
             span.style.backgroundColor = getHintColor(span.element);
             span.style.display = "inline";
         }
@@ -1186,8 +1204,8 @@ var hok = function () {
         let currentPageURL = content.location.href;
         if (pOptions["local_queries"] && currentPageURL)
         {
-            for (let [, [targetURLPattern, localSelector, toOverride]]
-                 in Iterator(pOptions["local_queries"]))
+            for (let [targetURLPattern, localSelector, toOverride]
+                 of pOptions["local_queries"])
             {
                 if (currentPageURL.match(targetURLPattern))
                 {
@@ -1252,7 +1270,7 @@ var hok = function () {
                     try
                     {
                         // TODO: Is there a good way to do this?
-                        for (let [, hintElem] in Iterator(hintElements))
+                        for (let hintElem of util.values(hintElements))
                         {
                             if (supressUniqueFire)
                                 hintElem.element.focus();
