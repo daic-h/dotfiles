@@ -1,5 +1,0 @@
-# -*- mode: shell-script -*-
-
-if [[ -s "$HOME/.dotfiles/zsh/init.zsh" ]]; then
-  source $HOME/.dotfiles/zsh/init.zsh
-fi

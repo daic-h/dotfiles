@@ -1,10 +1,4 @@
-[submodule "emacs/emacs.d.symlink"]
-	path = emacs/emacs.d.symlink
-	url = https://github.com/daic-h/emacs.d.git
-    ignore = dirty
-[submodule "zsh/modules/syntax-highlight/external"]
-	path = zsh/modules/syntax-highlight/external
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh/modules/completion/external"]
-	path = zsh/modules/completion/external
-	url = https://github.com/zsh-users/zsh-completions.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = git@github.com:daichirata/emacs.d.git
+	ignore = dirty
